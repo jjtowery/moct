@@ -23,5 +23,5 @@ class moct (α : Type) (dom : α → α) (cdm : α → α) (R : α → α → α
   moct_comp : ∀ x y, dom x = cdm y ↔ ∃ z, R x y z                      -- Morphisms are composable iff their domains and codomains match.
   moct_dom_cdm_comp : ∀ x y z, R x y z → dom z = dom y ∧ cdm z = cdm x -- The domain and codomain of a composite z = x ∘ y.
   moct_assoc : ∀ x y z a b, R x y a ∧ R y z b → ∃ w, R x b w ∧ R a z w -- Associativity. If x ∘ y = a and y ∘ z = b, then there is a common composite w such that x ∘ b = x ∘ (y ∘ z) = w and a ∘ z = (x ∘ y) ∘ z = w.
-  moct_left_id : ∀ x, R x (dom x) x                                    -- dom witnesses the left identity.
-  moct_right_id : ∀ x, R (cdm x) x x                                   -- cdm witnesses the right identity.
+  moct_right_id : ∀ x, R x (dom x) x                                   -- dom witnesses the right identity.
+  moct_left_id : ∀ x, R (cdm x) x x                                    -- cdm witnesses the left identity.
