@@ -30,7 +30,7 @@ def moct_cat {α : Type} {dom : α → α} {cdm : α → α} {R : α → α → 
   Hom X Y := { f : α // dom f = X.val ∧ cdm f = Y.val }
   id X := ⟨id X, ⟨by obtain ⟨x, h⟩ := X.property
                      rw [id, ←h]
-                     exact (C.moct_dom_cdm_comp x (dom x) x (C.moct_right_id x)).1.symm, 
+                     exact (C.moct_dom_comp x (dom x) x (C.moct_right_id x)).symm, 
                   by obtain ⟨x, h⟩ := X.property
                      rw [id, ←h]
                      exact (C.moct_exists_comp x (dom x) ⟨x, C.moct_right_id x⟩).symm⟩⟩

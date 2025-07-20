@@ -22,7 +22,8 @@ class moct (α : Type) (dom : α → α) (cdm : α → α) (R : α → α → α
   moct_map : ∀ x y z z', R x y z ∧ R x y z' → z = z'                   -- Composition is a partial mapping in two variables.
   moct_comp_exists : ∀ x y, dom x = cdm y → ∃ z, R x y z               -- Morphisms with compatible domains and codomains can be composed.
   moct_exists_comp : ∀ x y, (∃ z, R x y z) → dom x = cdm y             -- Composable morphisms have compatible domains and codomains. 
-  moct_dom_cdm_comp : ∀ x y z, R x y z → dom z = dom y ∧ cdm z = cdm x -- The domain and codomain of a composite z = x ∘ y.
+  moct_dom_comp : ∀ x y z, R x y z → dom z = dom y                     -- The domain of a composite.
+  moct_cdm_comp : ∀ x y z, R x y z → cdm z = cdm x                     -- The codomain of a composite.
   moct_assoc : ∀ x y z a b, R x y a ∧ R y z b → ∃ w, R x b w ∧ R a z w -- Associativity. If x ∘ y = a and y ∘ z = b, then there is a common composite w such that x ∘ b = x ∘ (y ∘ z) = w and a ∘ z = (x ∘ y) ∘ z = w.
   moct_right_id : ∀ x, R x (dom x) x                                   -- dom witnesses the right identity.
   moct_left_id : ∀ x, R (cdm x) x x                                    -- cdm witnesses the left identity.
